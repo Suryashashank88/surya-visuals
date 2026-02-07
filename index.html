@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Surya Visuals | Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: white;
+        }
+
+        .header {
+            background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 52px;
+            margin: 0;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .header p {
+            font-size: 18px;
+            animation: fadeIn 3s ease-in;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        iframe {
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
+        }
+
+        .skills span {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 18px;
+            border-radius: 20px;
+            background: #1f1f1f;
+            transition: 0.3s;
+        }
+
+        .skills span:hover {
+            background: #333;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Surya Edits</h1>
+        <p>Cinematic Video Editor | Premiere Pro | After Effects</p>
+    </div>
+
+    <div class="section">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm Surya. I create cinematic edits, reels, short films and VFX shots.
+            I use Premiere Pro, After Effects and AI tools to make professional content.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>My Works</h2>
+        <div class="videos">
+            <iframe width="350" height="200"
+            src="https://www.youtube.com/embed/VIDEO1"
+            allowfullscreen></iframe>
+
+            <iframe width="350" height="200"
+            src="https://www.youtube.com/embed/VIDEO2"
+            allowfullscreen></iframe>
+
+            <iframe width="350" height="200"
+            src="https://www.youtube.com/embed/VIDEO3"
+            allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span>Video Editing</span>
+            <span>Color Grading</span>
+            <span>After Effects</span>
+            <span>Rotoscoping</span>
+            <span>Green Screen</span>
+            <span>AI Editing</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Contact</h2>
+        <p>Email: yourmail@gmail.com</p>
+        <p>Instagram: @yourusername</p>
+    </div>
+
+</body>
+</html>
