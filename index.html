@@ -43,17 +43,16 @@ html {
         filter: brightness(0.5);
     }
 
-    .header h1 {
-        font-size: 50px;
-        z-index: 2;
-        animation: fadeInDown 1.5s ease-in;
-    }
-
+   .header h1 {
+    font-size: 50px;
+    z-index: 2;
+    animation: titleZoom 1.5s ease;
+}
     .header p {
         font-size: 20px;
         z-index: 2;
         margin-top: 10px;
-        animation: fadeInUp 1.5s ease-in;
+        animation: fadeInUp 2s ease;
     }
 
     /* Section Styles */
@@ -153,6 +152,18 @@ html {
         from { opacity: 0; transform: translateY(50px); }
         to { opacity: 1; transform: translateY(0); }
     }
+@keyframes titleZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+        letter-spacing: 8px;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        letter-spacing: 2px;
+    }
+}
 
     /* Responsive */
     @media (max-width: 768px) {
