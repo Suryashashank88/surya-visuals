@@ -88,6 +88,10 @@ section.show {
         border-bottom: 2px solid #444;
         display: inline-block;
         padding-bottom: 10px;
+        letter-spacing: 2px;
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255,255,255,0.2);
+
     }
 
     /* Video Gallery */
@@ -107,7 +111,7 @@ section.show {
     }
 
     .gallery iframe:hover {
-    transform: scale(1.08);
+    transform: scale(1.08) translateY(-8px);
     box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
 }
 
@@ -126,6 +130,8 @@ section.show {
         background: #1f1f1f;
         font-weight: bold;
         transition: transform 0.3s, background 0.3s;
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 
     .skills span:hover {
