@@ -13,13 +13,13 @@
         color: white;
         overflow-x: hidden;
     }
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
+
 a { text-decoration: none; color: inherit; }
+
 h1, h2, h3 { margin: 0; }
 
-/* Loader / Intro */
+/* Intro Loader */
 #loader {
     position: fixed;
     width: 100%;
@@ -30,63 +30,45 @@ h1, h2, h3 { margin: 0; }
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    transition: opacity 1s ease;
 }
 
-/* SV Main Text */
 #loader-main {
     font-size: 80px;
     font-weight: bold;
     color: #e50914;
     letter-spacing: 20px;
-    opacity: 0;
-    animation: mainZoom 4s forwards;
+    opacity: 1; /* stays visible */
 }
 
-/* SURYA VISUALS Letters */
 #loader-sub {
     margin-top: 20px;
     display: flex;
     gap: 4px;
-    opacity: 0;
-    animation: subReveal 2s forwards;
-    animation-delay: 1.5s;
 }
 #loader-sub span {
     display: inline-block;
-    font-size: 30px;
+    font-size: 32px;
     color: #fff;
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-50px);
     animation: letterDrop 0.5s forwards;
 }
-#loader-sub span:nth-child(1){animation-delay:1.5s;}
-#loader-sub span:nth-child(2){animation-delay:1.6s;}
-#loader-sub span:nth-child(3){animation-delay:1.7s;}
-#loader-sub span:nth-child(4){animation-delay:1.8s;}
-#loader-sub span:nth-child(5){animation-delay:1.9s;}
-#loader-sub span:nth-child(6){animation-delay:2.0s;}
-#loader-sub span:nth-child(7){animation-delay:2.1s;}
-#loader-sub span:nth-child(8){animation-delay:2.2s;}
-#loader-sub span:nth-child(9){animation-delay:2.3s;}
-#loader-sub span:nth-child(10){animation-delay:2.4s;}
-#loader-sub span:nth-child(11){animation-delay:2.5s;}
-#loader-sub span:nth-child(12){animation-delay:2.6s;}
-#loader-sub span:nth-child(13){animation-delay:2.7s;}
-
-/* Animations */
-@keyframes mainZoom {
-    0% { transform: scale(0.2); opacity: 0; letter-spacing: 40px;}
-    50% { transform: scale(1.3); opacity: 1; letter-spacing: 15px;}
-    100% { transform: scale(1); letter-spacing: 8px;}
-}
-
-@keyframes subReveal {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
+#loader-sub span:nth-child(1){animation-delay:0.5s;}
+#loader-sub span:nth-child(2){animation-delay:0.6s;}
+#loader-sub span:nth-child(3){animation-delay:0.7s;}
+#loader-sub span:nth-child(4){animation-delay:0.8s;}
+#loader-sub span:nth-child(5){animation-delay:0.9s;}
+#loader-sub span:nth-child(6){animation-delay:1.0s;}
+#loader-sub span:nth-child(7){animation-delay:1.1s;}
+#loader-sub span:nth-child(8){animation-delay:1.2s;}
+#loader-sub span:nth-child(9){animation-delay:1.3s;}
+#loader-sub span:nth-child(10){animation-delay:1.4s;}
+#loader-sub span:nth-child(11){animation-delay:1.5s;}
+#loader-sub span:nth-child(12){animation-delay:1.6s;}
 
 @keyframes letterDrop {
-    0% { opacity: 0; transform: translateY(-30px);}
+    0% { opacity: 0; transform: translateY(-50px);}
     100% { opacity: 1; transform: translateY(0);}
 }
 
@@ -117,7 +99,10 @@ h1, h2, h3 { margin: 0; }
     font-size: 50px;
     z-index: 2;
     color: #f5c542;
-    text-shadow: 0 0 10px #f5c542, 0 0 20px #f5c542, 0 0 40px #f5c542;
+    text-shadow: 
+        0 0 10px #f5c542,
+        0 0 20px #f5c542,
+        0 0 40px #f5c542;
 }
 
 .header p {
@@ -140,6 +125,7 @@ section {
     backdrop-filter: blur(10px);
     box-shadow: 0 0 25px rgba(0,0,0,0.4);
 }
+
 section.show {
     opacity: 1;
     transform: translateY(0);
@@ -163,6 +149,7 @@ section.show {
     justify-content: center;
     gap: 25px;
 }
+
 .gallery iframe {
     width: 350px;
     height: 200px;
@@ -170,18 +157,20 @@ section.show {
     box-shadow: 0 0 15px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
 }
+
 .gallery iframe:hover {
     transform: scale(1.08) translateY(-8px);
     box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
 }
 
-/* Skills */
+/* Skills Badges */
 .skills {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
 }
+
 .skills span {
     display: inline-block;
     padding: 12px 20px;
@@ -192,6 +181,7 @@ section.show {
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
 .skills span:hover {
     transform: scale(1.1);
     background: #333;
@@ -206,6 +196,7 @@ section.show {
     background: #1f1f1f;
     transition: background 0.3s, transform 0.3s;
 }
+
 .contact a:hover {
     background: #333;
     transform: scale(1.05);
@@ -213,7 +204,11 @@ section.show {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .gallery iframe { width: 90%; height: 200px; }
+    .gallery iframe {
+        width: 90%;
+        height: 200px;
+    }
+
     .header h1 { font-size: 36px; }
     .header p { font-size: 16px; }
 }
@@ -221,10 +216,10 @@ section.show {
 </head>
 <body>
 
-<!-- Intro Loader -->
+<!-- Loader / Intro -->
 <div id="loader">
     <h1 id="loader-main">SV</h1>
-    <h2 id="loader-sub">SURYA VISUALS</h2>
+    <h2 id="loader-sub">
         <span>S</span><span>U</span><span>R</span><span>Y</span><span>A</span> 
         <span>V</span><span>I</span><span>S</span><span>U</span><span>A</span><span>L</span><span>S</span>
     </h2>
@@ -240,16 +235,19 @@ section.show {
 <!-- About Section -->
 <section id="about">
     <h2 class="section-title">ABOUT ME</h2>
-    <p>Hi, I'm Surya. I create cinematic edits, reels, short films, and VFX shots. I use Premiere Pro, After Effects, and AI tools to craft professional content.</p>
+    <p>
+        Hi, I'm Surya. I create cinematic edits, reels, short films, and VFX shots.
+        I use Premiere Pro, After Effects, and AI tools to craft professional content.
+    </p>
 </section>
 
-<!-- Projects -->
+<!-- Projects / Video Gallery -->
 <section id="projects">
     <h2 class="section-title">MY WORKS</h2>
     <div class="gallery">
-        <iframe src="https://www.youtube.com/embed/UuWtKsGmOOw?si=bq4BX6a03QXzNtv5" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/wGyMjv01gaI?si=ln_xlBxkeUvuEGXj" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/qBuCun4utsU?si=Rd7SSUtbENSW1z62" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/UuWtKsGmOOw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wGyMjv01gaI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/qBuCun4utsU" allowfullscreen></iframe>
     </div>
 </section>
 
@@ -281,21 +279,23 @@ section.show {
 </section>
 
 <script>
-// Loader animation
-window.addEventListener("load", function(){
-    setTimeout(() => {
-        document.getElementById("loader").style.opacity = "0";
-        setTimeout(() => document.getElementById("loader").style.display = "none", 500);
-    }, 4000); // total intro duration
-});
-
-// Scroll animations for sections
+// Section fade in
 window.addEventListener("scroll", function() {
     const sections = document.querySelectorAll("section");
     sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < window.innerHeight - 100) section.classList.add("show");
+        if(sectionTop < window.innerHeight - 100) {
+            section.classList.add("show");
+        }
     });
+});
+
+// Loader fadeout
+window.addEventListener("load", function(){
+    setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => document.getElementById("loader").style.display = "none", 500);
+    }, 2500);
 });
 </script>
 
