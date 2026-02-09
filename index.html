@@ -60,9 +60,15 @@ html {
     padding: 60px 20px;
     text-align: center;
     opacity: 0;
-    transform: translateY(40px);
-    animation: smoothFade 1.2s ease forwards;
+    transform: translateY(60px);
+    transition: all 1s ease;
 }
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
     .section-title {
         font-size: 32px;
         margin-bottom: 40px;
@@ -179,6 +185,10 @@ html {
     
 </head>
 <body>
+    
+<div id="loader">
+    <h1>SURYA VISUALS</h1>
+</div>
 
 <!-- Header / Hero -->
 <div class="header">
@@ -235,6 +245,19 @@ html {
         <a href="https://linkedin.com/in/surya-shashank-naga-venkata-govinda-629778389" target="_blank">LinkedIn</a>
     </div>
 </section>
+<script>
+window.addEventListener("scroll", function() {
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if(sectionTop < window.innerHeight - 100) {
+            section.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
