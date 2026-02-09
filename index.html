@@ -48,7 +48,7 @@ html {
     z-index: 2;
     animation: titleZoom 1.5s ease;
     color: #f5c542;
-text-shadow: 
+    text-shadow: 
     0 0 10px #f5c542,
     0 0 20px #f5c542,
     0 0 40px #f5c542;
@@ -68,7 +68,6 @@ text-shadow:
     opacity: 0;
     transform: translateY(60px);
     transition: all 1s ease;
-
     background: rgba(255,255,255,0.03);
     margin: 40px auto;
     width: 85%;
@@ -213,15 +212,33 @@ section.show {
 }
 
 #loader h1 {
-    font-size: 60px;
-    color: white;
-    letter-spacing: 6px;
-    text-shadow: 
-        0 0 10px #fff,
-        0 0 20px #fff,
-        0 0 40px #fff;
-    animation: zoomIn 1.5s ease;
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 12px;
+    color: #e50914;
+    animation: netflixReveal 3s ease forwards;
 }
+@keyframes netflixReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        letter-spacing: 25px;
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.1);
+        letter-spacing: 15px;
+    }
+    70% {
+        transform: scale(1);
+        letter-spacing: 8px;
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 4px;
+    }
+}
+
 
 @keyframes zoomIn {
     from {
@@ -314,7 +331,10 @@ window.addEventListener("scroll", function() {
 <script>
 window.addEventListener("load", function(){
     setTimeout(function(){
-        document.getElementById("loader").style.display = "none";
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => {
+       S document.getElementById("loader").style.display = "none";
+           }, 500);
     }, 3000);
 });
 </script>
