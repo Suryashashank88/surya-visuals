@@ -15,7 +15,50 @@ body {
 }
 html { scroll-behavior: smooth; }
 a { text-decoration: none; color: inherit; }
-h1,h2,h3 { margin: 0; }
+h1, h2, h3 { margin: 0; }
+
+/* INTRO LOADER */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loader-main {
+    font-size: 120px;
+    font-weight: bold;
+    color: #e50914;
+    letter-spacing: 10px;
+    opacity: 0;
+    animation: svAppear 1.5s ease forwards;
+}
+
+#loader-sub {
+    font-size: 60px;
+    color: #fff;
+    opacity: 0;
+    letter-spacing: 8px;
+}
+
+/* SV zoom animation */
+@keyframes svAppear {
+    0% { opacity: 0; transform: scale(0.2); }
+    70% { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* SURYA VISUALS breakdown */
+@keyframes textBreakdown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    50% { opacity: 1; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
 /* Header / Hero */
 .header {
@@ -31,8 +74,9 @@ h1,h2,h3 { margin: 0; }
 }
 .header video {
     position: absolute;
-    top:0; left:0;
-    width:100%; height:100%;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.5);
@@ -40,9 +84,12 @@ h1,h2,h3 { margin: 0; }
 .header h1 {
     font-size: 50px;
     z-index: 2;
-    color: #f5c542;
-    text-shadow: 0 0 10px #f5c542, 0 0 20px #f5c542, 0 0 40px #f5c542;
     animation: titleZoom 1.5s ease;
+    color: #f5c542;
+    text-shadow: 
+        0 0 10px #f5c542,
+        0 0 20px #f5c542,
+        0 0 40px #f5c542;
 }
 .header p {
     font-size: 20px;
@@ -51,31 +98,7 @@ h1,h2,h3 { margin: 0; }
     animation: fadeInUp 2s ease;
 }
 
-/* Canvas for Smoke */
-#smokeCanvas {
-    position: absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index:1;
-    pointer-events:none;
-}
-
-/* Light Glow */
-.lightGlow {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 85%);
-    animation: floatLight linear infinite;
-}
-@keyframes floatLight {
-    0% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(50px,-30px) scale(1.2); }
-    100% { transform: translate(0,0) scale(1); }
-}
-
-/* Section Styles */
+/* Sections */
 section {
     padding: 60px 20px;
     text-align: center;
@@ -90,8 +113,8 @@ section {
     box-shadow: 0 0 25px rgba(0,0,0,0.4);
 }
 section.show {
-    opacity:1;
-    transform:translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 .section-title {
     font-size: 32px;
@@ -99,124 +122,95 @@ section.show {
     border-bottom: 2px solid #444;
     display: inline-block;
     padding-bottom: 10px;
-    letter-spacing:2px;
-    color:#fff;
+    letter-spacing: 2px;
+    color: #ffffff;
     text-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
 /* Video Gallery */
 .gallery {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 .gallery iframe {
-    width:350px;
-    height:200px;
-    border-radius:12px;
-    box-shadow:0 0 15px rgba(255,255,255,0.1);
+    width: 350px;
+    height: 200px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
 }
 .gallery iframe:hover {
     transform: scale(1.08) translateY(-8px);
-    box-shadow:0px 10px 25px rgba(0,0,0,0.6);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
 }
 
 /* Skills */
 .skills {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 .skills span {
-    display:inline-block;
-    padding:12px 20px;
-    border-radius:25px;
-    background:#1f1f1f;
-    font-weight:bold;
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 25px;
+    background: #1f1f1f;
+    font-weight: bold;
     transition: transform 0.3s, background 0.3s;
     border: 1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .skills span:hover {
     transform: scale(1.1);
-    background:#333;
+    background: #333;
 }
 
 /* Contact */
 .contact a {
-    display:inline-block;
-    margin:10px 15px;
-    padding:10px 20px;
-    border-radius:20px;
-    background:#1f1f1f;
-    transition:background 0.3s, transform 0.3s;
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #1f1f1f;
+    transition: background 0.3s, transform 0.3s;
 }
 .contact a:hover {
-    background:#333;
+    background: #333;
     transform: scale(1.05);
 }
 
 /* Animations */
-@keyframes fadeInUp { from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);} }
-@keyframes titleZoom { 0%{opacity:0; transform:scale(0.8); letter-spacing:8px;} 100%{opacity:1; transform:scale(1); letter-spacing:2px;} }
-
-/* Loader */
-#loader {
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-    transition: opacity 1s ease;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-#loader h1 
-{
-    font-size:120px;
-    font-weight:bold;
-    color:#e50914;
-    letter-spacing:10px;
-    opacity:0;
-    animation: boomText 2s ease forwards;
+@keyframes titleZoom {
+    0% { opacity: 0; transform: scale(0.8); letter-spacing: 8px; }
+    100% { opacity: 1; transform: scale(1); letter-spacing: 2px; }
 }
-@keyframes boomText {
-    0% { transform:scale(0.2); opacity:0; letter-spacing:40px; }
-    50% { transform:scale(1.3); opacity:1; letter-spacing:15px; }
-    100% { transform:scale(1); letter-spacing:8px; }
-}
-#loader::after {
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, black 60%);
-    opacity:0;
-    animation: flashBoom 1.2s ease;
-}
-@keyframes flashBoom { 0%{opacity:0;} 40%{opacity:1;} 100%{opacity:0;} }
 
 /* Responsive */
-@media (max-width:768px){
-    .gallery iframe{width:90%; height:200px;}
-    .header h1{font-size:36px;}
-    .header p{font-size:16px;}
+@media (max-width: 768px) {
+    .gallery iframe { width: 90%; height: 200px; }
+    .header h1 { font-size: 36px; }
+    .header p { font-size: 16px; }
 }
 </style>
 </head>
 <body>
 
 <!-- Loader -->
-<div id="loader"><h1>SV</h1></div>
+<div id="loader">
+    <h1 id="loader-main">SV</h1>
+    <h2 id="loader-sub">SURYA VISUALS</h2>
+</div>
 
-<!-- Header -->
+<!-- Header / Hero -->
 <div class="header">
     <video src="pspk (1).mp4" autoplay muted loop></video>
-    <canvas id="smokeCanvas"></canvas>
     <h1>SURYA VISUALS</h1>
     <p>Cinematic Video Editor | Premiere Pro | After Effects</p>
 </div>
@@ -227,13 +221,13 @@ section.show {
     <p>Hi, I'm Surya. I create cinematic edits, reels, short films, and VFX shots. I use Premiere Pro, After Effects, and AI tools to craft professional content.</p>
 </section>
 
-<!-- Projects -->
+<!-- Projects / Video Gallery -->
 <section id="projects">
     <h2 class="section-title">MY WORKS</h2>
     <div class="gallery">
-        <iframe src="https://www.youtube.com/embed/UuWtKsGmOOw" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/wGyMjv01gaI" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/qBuCun4utsU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/UuWtKsGmOOw?si=bq4BX6a03QXzNtv5" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wGyMjv01gaI?si=ln_xlBxkeUvuEGXj" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/qBuCun4utsU?si=Rd7SSUtbENSW1z62" allowfullscreen></iframe>
     </div>
 </section>
 
@@ -265,73 +259,33 @@ section.show {
 </section>
 
 <script>
-// Section scroll animation
-window.addEventListener("scroll", function(){
+// Section scroll animations
+window.addEventListener("scroll", function() {
     const sections = document.querySelectorAll("section");
-    sections.forEach(section=>{
-        const top = section.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100) section.classList.add("show");
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < window.innerHeight - 100) {
+            section.classList.add("show");
+        }
     });
 });
 
-// Loader
+// Loader SV → SURYA VISUALS
 window.addEventListener("load", function(){
-    setTimeout(()=>{
-        document.getElementById("loader").style.opacity="0";
-        setTimeout(()=>document.getElementById("loader").style.display="none",500);
-    },3000);
+    const loaderMain = document.getElementById("loader-main");
+    const loaderSub = document.getElementById("loader-sub");
+
+    // Show SURYA VISUALS after SV
+    setTimeout(() => {
+        loaderSub.style.opacity = 1;
+        loaderSub.style.animation = "textBreakdown 1.5s ease forwards";
+    }, 1600);
+
+    // Hide loader
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+    }, 3500);
 });
-
-// Smoke Effect
-const canvas = document.getElementById('smokeCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let smokeParticles = [];
-function random(min,max){ return Math.random()*(max-min)+min; }
-class Smoke{
-    constructor(){
-        this.x = random(0,canvas.width);
-        this.y = canvas.height;
-        this.size = random(20,80);
-        this.speedY = random(0.2,1);
-        this.alpha = random(0.05,0.15);
-    }
-    update(){
-        this.y -= this.speedY;
-        if(this.y+this.size<0){
-            this.y = canvas.height;
-            this.x = random(0,canvas.width);
-        }
-    }
-    draw(){
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
-    }
-}
-for(let i=0;i<30;i++) smokeParticles.push(new Smoke());
-function animateSmoke(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    smokeParticles.forEach(p=>{p.update(); p.draw();});
-    requestAnimationFrame(animateSmoke);
-}
-animateSmoke();
-
-// Light Glow
-for(let i=0;i<3;i++){
-    const light = document.createElement('div');
-    light.classList.add('lightGlow');
-    light.style.top = random(50,200)+'px';
-    light.style.left = random(50,window.innerWidth-200)+'px';
-    light.style.animationDuration = random(5,10)+'s';
-    document.querySelector('.header').appendChild(light);
-}
-
-// Resize canvas
-window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
 </script>
 
 </body>
