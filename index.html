@@ -9,9 +9,19 @@
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:#0d0d0d;
+    background:linear-gradient(120deg,#000000 0%,#0a0000 35%,#1a0000 60%,#000000 100%);
     color:white;
     overflow-x:hidden;
+}
+
+/* subtle cinematic red overlay */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at 20% 30%, rgba(255,0,0,0.08), transparent 40%);
+    pointer-events:none;
+    z-index:-1;
 }
 
 html{scroll-behavior:smooth;}
@@ -276,7 +286,6 @@ I use Premiere Pro, After Effects, and AI tools to craft professional content.
         <span>Blender</span>
         <span>Unreal</span>
         <span>Unity</span>
-
 </div>
 </section>
 
