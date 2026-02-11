@@ -483,18 +483,18 @@ counters.forEach(counter => {
         if(count < target){
             let newCount = count + increment;
             if(format === 'M'){
-                counter.innerText = (newCount/1000000).toFixed(1) + 'M+';
+                counter.innerText = (newCount/1000000).toFixed(1) + 'M';
             } else if(format === 'k'){
-                counter.innerText = (newCount/1000).toFixed(1) + 'k+';
+                counter.innerText = (newCount/1000).toFixed(1) + 'k';
             } else {
                 counter.innerText = Math.ceil(newCount);
             }
             setTimeout(updateCount, 20);
         } else {
             if(format === 'M'){
-                counter.innerText = (target/1000000).toFixed(1) + 'M+';
+                counter.innerText = (target/1000000).toFixed(1) + 'M';
             } else if(format === 'k'){
-                counter.innerText = (target/1000).toFixed(1) + 'k+';
+                counter.innerText = (target/1000).toFixed(1) + 'k';
             } else {
                 counter.innerText = target + '+' ;
             }
