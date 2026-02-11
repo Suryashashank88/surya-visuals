@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Surya Visuals | Portfolio</title>
@@ -219,17 +220,32 @@ section.show{
 /* ================= CONTACT ================= */
 
 .contact a{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:8px; /* space between icon and text */
     margin:10px 15px;
-    padding:10px 20px;
-    border-radius:20px;
+    padding:12px 22px;
+    border-radius:25px;
     background:#1f1f1f;
     transition:0.3s;
+    font-weight:bold;
+}
+
+.contact a i{
+    font-size:18px;
 }
 
 .contact a:hover{
-    background:#333;
-    transform:scale(1.05);
+    background:#e50914; /* cinematic red hover */
+    transform:scale(1.08);
+    box-shadow:0 0 15px rgba(229,9,20,0.6);
+}
+@media(max-width:768px){
+  .contact a{
+    width:90%;
+    justify-content:center;
+    margin:8px auto;
+  }
 }
 
 /* ================= ANIMATIONS ================= */
@@ -330,8 +346,6 @@ Specialized in reels, cinematic cuts, short films, and VFX-based storytelling.
 <span>Green Screen</span>
 <span>Color Grading</span>
 <span>Match Move</span>
-<span>Modeling</span>
-<span>Texturing</span>
 <span>AI Editing</span>
 </div>
 </section>
@@ -364,10 +378,17 @@ Specialized in reels, cinematic cuts, short films, and VFX-based storytelling.
 <h2 class="section-title">CONTACT ME</h2>
     <p>Open to freelance work, internships, and creative collaborations.</p>
 <div class="contact">
-<a href="mailto:suryashashank88@gmail.com">Email Me</a>
-<a href="https://instagram.com/surya_shashank_333" target="_blank">Instagram</a>
-<a href="https://www.linkedin.com/in/surya-shashank-naga-venkata-govinda-629778389/" target="_blank">LinkedIn</a>
+  <a href="mailto:suryashashank88@gmail.com">
+    <i class="fa-solid fa-envelope"></i> Email
+  </a>
+  <a href="https://instagram.com/surya_shashank_333" target="_blank">
+    <i class="fa-brands fa-instagram"></i> Instagram
+  </a>
+  <a href="https://www.linkedin.com/in/surya-shashank-naga-venkata-govinda-629778389/" target="_blank">
+    <i class="fa-brands fa-linkedin"></i> LinkedIn
+  </a>
 </div>
+
 </section>
 
 <script>
