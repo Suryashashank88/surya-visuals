@@ -422,7 +422,7 @@ Specialized in reels, cinematic cuts, short films, and VFX-based storytelling.
       <p>Clients Worked With</p>
     </div>
     <div class="stat">
-      <h3 class="counter" data-target="1M+">0</h3>
+      <h3 class="counter" data-target="1000000"data-format="M">0</h3>
       <p>Views</p>
     </div>
   </div>
@@ -476,21 +476,36 @@ window.addEventListener("load",function(){
     },3200);
 });
     // Counter animation
+// Counter animation with formatting
 const counters = document.querySelectorAll('.counter');
 const speed = 200; // lower = faster
 
 counters.forEach(counter => {
     const updateCount = () => {
         const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
+        const format = counter.getAttribute('data-format'); // check for M or k
+        const count = +counter.innerText.replace(/[^\d]/g, ''); // remove formatting
 
         const increment = target / speed;
 
         if(count < target){
-            counter.innerText = Math.ceil(count + increment);
+            let newCount = count + increment;
+            if(format === 'M'){
+                counter.innerText = (newCount/1000000).toFixed(1) + 'M';
+            } else if(format === 'k'){
+                counter.innerText = (newCount/1000).toFixed(1) + 'k';
+            } else {
+                counter.innerText = Math.ceil(newCount);
+            }
             setTimeout(updateCount, 20);
         } else {
-            counter.innerText = target;
+            if(format === 'M'){
+                counter.innerText = (target/1000000).toFixed(1) + 'M';
+            } else if(format === 'k'){
+                counter.innerText = (target/1000).toFixed(1) + 'k';
+            } else {
+                counter.innerText = target;
+            }
         }
     }
 
