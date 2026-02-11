@@ -500,11 +500,11 @@ counters.forEach(counter => {
             setTimeout(updateCount, 20);
         } else {
             if(format === 'M'){
-                counter.innerText = (target/1000000).toFixed(1) + 'M';
+                counter.innerText = (target/1000000).toFixed(1) + 'M+';
             } else if(format === 'k'){
-                counter.innerText = (target/1000).toFixed(1) + 'k';
+                counter.innerText = (target/1000).toFixed(1) + 'k+';
             } else {
-                counter.innerText = target;
+                counter.innerText = target + '+' ;
             }
         }
     }
