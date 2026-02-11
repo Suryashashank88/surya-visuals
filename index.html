@@ -484,16 +484,19 @@ counters.forEach(counter => {
     const updateCount = () => {
         const target = +counter.getAttribute('data-target');
         const format = counter.getAttribute('data-format'); // check for M or k
-        const count = +counter.innerText.replace(/[^\d]/g, ''); // remove formatting
+        const count = counter.innerText.includes('M') 
+    ? parseFloat(counter.innerText) * 1000000
+    : +counter.innerText.replace('+','');
+// remove formatting
 
         const increment = target / speed;
 
         if(count < target){
             let newCount = count + increment;
             if(format === 'M'){
-                counter.innerText = (newCount/1000000).toFixed(1) + 'M';
+                counter.innerText = (newCount/1000000).toFixed(1) + 'M+';
             } else if(format === 'k'){
-                counter.innerText = (newCount/1000).toFixed(1) + 'k';
+                counter.innerText = (newCount/1000).toFixed(1) + 'k+';
             } else {
                 counter.innerText = Math.ceil(newCount);
             }
