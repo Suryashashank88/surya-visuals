@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Surya Visuals | Cinematic Editor</title>
+<title>Surya Visuals | Portfolio</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -18,11 +18,60 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:Arial, sans-serif;
 background:#050505;
 color:white;
 overflow-x:hidden;
+}
+
+/* LOADER */
+
+#loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+transition:opacity .8s ease;
+}
+
+#intro-sv{
+font-size:90px;
+font-weight:bold;
+color:#e50914;
+letter-spacing:15px;
+opacity:0;
+text-shadow:0 0 8px #e50914;
+animation:svPop 1.5s ease forwards;
+}
+
+#intro-full{
+font-size:36px;
+margin-top:15px;
+letter-spacing:6px;
+opacity:0;
+animation:textBreak 1.2s ease forwards;
+animation-delay:1.6s;
+}
+
+@keyframes svPop{
+0%{transform:scale(.3);opacity:0;}
+50%{transform:scale(1.3);opacity:1;}
+100%{transform:scale(1);}
+}
+
+@keyframes textBreak{
+0%{transform:translateY(-40px);opacity:0;}
+100%{transform:translateY(0);opacity:1;}
 }
 
 /* NAVBAR */
@@ -68,8 +117,8 @@ color:#e50914;
 height:100vh;
 position:relative;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
 overflow:hidden;
 }
@@ -155,12 +204,13 @@ gap:30px;
 background:#111;
 border-radius:14px;
 overflow:hidden;
-transition:0.4s;
+transition:.4s;
+cursor:pointer;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(229,9,20,0.3);
+transform:translateY(-12px) scale(1.03);
+box-shadow:0 0 30px rgba(229,9,20,.4);
 }
 
 .card iframe{
@@ -256,6 +306,11 @@ font-size:13px;
 
 <body>
 
+<div id="loader">
+<h1 id="intro-sv">SV</h1>
+<h2 id="intro-full">SURYA VISUALS</h2>
+</div>
+
 <nav>
 
 <h1>SV</h1>
@@ -318,7 +373,7 @@ Crafting emotional edits, trailer cuts and cinematic storytelling.
 
 <div class="card">
 <iframe src="https://drive.google.com/file/d/1JzApEDjtXsfbSMJRo4NmdQNAHWgCmGqp/preview"></iframe>
-<h3>AD Promo</h3>
+<h3>Short Film Edit</h3>
 </div>
 
 </div>
@@ -375,6 +430,20 @@ Crafting emotional edits, trailer cuts and cinematic storytelling.
 
 <script>
 
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.opacity="0";
+
+setTimeout(function(){
+document.getElementById("loader").style.display="none";
+},800);
+
+},2500);
+
+});
+
 const sections=document.querySelectorAll("section");
 
 window.addEventListener("scroll",()=>{
@@ -383,7 +452,7 @@ sections.forEach(sec=>{
 
 const top=sec.getBoundingClientRect().top;
 
-if(top<window.innerHeight-100){
+if(top<window.innerHeight-120){
 sec.classList.add("show");
 }
 
