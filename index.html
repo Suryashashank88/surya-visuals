@@ -332,7 +332,76 @@ font-size:14px;
 opacity:0.7;
 }
 
+/* =========================
+STATS
+========================= */
 
+.stats-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:40px;
+margin-top:40px;
+}
+
+.stat{
+background:#111;
+padding:30px 40px;
+border-radius:12px;
+text-align:center;
+transition:0.3s;
+}
+
+.stat:hover{
+transform:translateY(-8px);
+background:#e50914;
+}
+
+.stat h3{
+font-size:40px;
+color:#e50914;
+}
+
+.stat:hover h3{
+color:white;
+}
+
+.stat p{
+margin-top:8px;
+opacity:0.8;
+}
+
+
+/* =========================
+WORK WITH ME
+========================= */
+
+#work{
+text-align:center;
+}
+
+.work-text{
+max-width:700px;
+margin:auto;
+opacity:0.8;
+line-height:1.6;
+font-size:18px;
+margin-bottom:30px;
+}
+
+.work-btn{
+padding:14px 30px;
+background:#e50914;
+color:white;
+border-radius:30px;
+text-decoration:none;
+font-size:16px;
+transition:0.3s;
+}
+
+.work-btn:hover{
+transform:scale(1.1);
+}
 /* =========================
 MOBILE
 ========================= */
@@ -458,7 +527,35 @@ allowfullscreen>
 
 </section>
 
+<section id="stats">
 
+<h2 class="section-title">MY WORK</h2>
+
+<div class="stats-container">
+
+<div class="stat">
+<h3>20+</h3>
+<p>Projects Edited</p>
+</div>
+
+<div class="stat">
+<h3>10+</h3>
+<p>Creative Collaborations</p>
+</div>
+
+<div class="stat">
+<h3>3+</h3>
+<p>Short Films</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Passion For Cinema</p>
+</div>
+
+</div>
+
+</section>
 
 <!-- SKILLS -->
 
@@ -480,7 +577,26 @@ allowfullscreen>
 
 </section>
 
+<section id="work">
 
+<h2 class="section-title">LET'S WORK TOGETHER</h2>
+
+<p class="work-text">
+
+I'm currently open for freelance work, film collaborations,
+music videos, trailers and cinematic editing projects.
+
+If you're a filmmaker, brand or content creator looking
+for powerful storytelling through editing,
+I'd love to collaborate and bring your vision to life.
+
+</p>
+
+<a href="#contact" class="work-btn">
+Start a Project
+</a>
+
+</section>
 
 <!-- CONTACT -->
 
