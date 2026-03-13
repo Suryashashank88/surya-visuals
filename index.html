@@ -82,11 +82,12 @@ FILM STRIP INTRO
 ========================= */
 .filmstrip{
   position:absolute;
-  width:100%;
-  height:120px;
+  width:1000%;
+  height:200px;
   background: url('filmstrip.png') repeat-x;
   background-size: contain;
-  z-index:3;
+  z-index:5;
+  opacity:1;
 }
 
 .filmstrip.top{
@@ -101,12 +102,12 @@ FILM STRIP INTRO
 
 @keyframes stripUp{
   0%{transform:translateY(0);}
-  100%{transform:translateY(-150px);}
+  100%{transform:translateY(-220px);}
 }
 
 @keyframes stripDown{
   0%{transform:translateY(0);}
-  100%{transform:translateY(150px);}
+  100%{transform:translateY(220px);}
 }
   .filmstrip 
 {
@@ -433,7 +434,7 @@ MOBILE
     <p class="intro-sub">Entering The Editing Space</p>  
   <div class="filmstrip top"></div>
   <div class="filmstrip bottom"></div>
-  
+  <div class="cinema-bg"></div>
   </div>
 </div>
 
