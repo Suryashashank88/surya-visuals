@@ -84,8 +84,8 @@ FILM STRIP INTRO
   background:#fff;
   z-index:5;
   overflow:hidden;
-
-  animation:filmRoll 1s linear infinite;
+  animation:filmRoll 3s linear infinite;
+  will-change: transform;
 }
 .filmstrip.top{
   top:0;
@@ -118,7 +118,7 @@ FILM STRIP INTRO
 /* sideways film motion */
 @keyframes filmRoll{
   0%{ transform:translateX(0); }
-  100%{ transform:translateX(-120px); }
+  100%{ transform:translateX(-70px); }
 }
 @keyframes stripUp{
   0%{transform:translateY(0);}
