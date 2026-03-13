@@ -72,7 +72,48 @@ CINEMATIC INTRO LOADER
   from { text-shadow: 0 0 10px #e50914; }
   to { text-shadow: 0 0 40px #ff1a1a; }
 }
+@keyframes logoGlow {
+  from { text-shadow: 0 0 10px #e50914; }
+  to { text-shadow: 0 0 40px #ff1a1a; }
+}
 
+/* FILM STRIP INTRO */
+.filmstrip{
+  position:absolute;
+  width:100%;
+  height:120px;
+  background:black;
+
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 40px,
+    white 40px,
+    white 50px
+  );
+
+  z-index:3;
+}
+
+.filmstrip.top{
+  top:0;
+  animation:stripUp 2s forwards;
+}
+
+.filmstrip.bottom{
+  bottom:0;
+  animation:stripDown 2s forwards;
+}
+
+@keyframes stripUp{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-150px);}
+}
+
+@keyframes stripDown{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(150px);}
+}
 .intro-text {
   margin-top: 10px;
   letter-spacing: 8px;
@@ -388,6 +429,10 @@ MOBILE
 <!-- LOADER -->
 <div id="loader">
   <div class="cinema-bg"></div>
+
+  <div class="filmstrip top"></div>
+  <div class="filmstrip bottom"></div>
+
   <div class="intro-container">
     <div class="sv-logo"><span>S</span><span>V</span></div>
     <h2 class="intro-text">SURYA VISUALS</h2>
