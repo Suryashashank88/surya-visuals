@@ -71,6 +71,7 @@ CINEMATIC INTRO LOADER
 @keyframes logoGlow {
   from { text-shadow: 0 0 10px #e50914; }
   to { text-shadow: 0 0 40px #ff1a1a; }
+}
 
 /* =========================
 FILM STRIP INTRO
@@ -79,7 +80,7 @@ FILM STRIP INTRO
 .filmstrip{
   position:absolute;
   width:200%;              /* wider for sideways motion */
-  height:160px;
+  height:120px;
   background:#fff;
   z-index:5;
   overflow:hidden;
@@ -447,14 +448,17 @@ MOBILE
 <!-- LOADER -->
 <div id="loader">
 
+  <div class="cinema-bg"></div>
+
+  <div class="filmstrip top"></div>
+  <div class="filmstrip bottom"></div>
+
   <div class="intro-container">
     <div class="sv-logo"><span>S</span><span>V</span></div>
     <h2 class="intro-text">SURYA VISUALS</h2>
-    <p class="intro-sub">Entering The Editing Space</p>  
-  <div class="filmstrip top"></div>
-  <div class="filmstrip bottom"></div>
-  <div class="cinema-bg"></div>
+    <p class="intro-sub">Entering The Editing Space</p>
   </div>
+
 </div>
 
 <!-- NAVBAR -->
