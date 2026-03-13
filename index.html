@@ -71,43 +71,62 @@ CINEMATIC INTRO LOADER
 @keyframes logoGlow {
   from { text-shadow: 0 0 10px #e50914; }
   to { text-shadow: 0 0 40px #ff1a1a; }
-}
-@keyframes logoGlow {
-  from { text-shadow: 0 0 10px #e50914; }
-  to { text-shadow: 0 0 40px #ff1a1a; }
-}
 
 /* =========================
 FILM STRIP INTRO
 ========================= */
+/* REALISTIC FILM STRIP */
 .filmstrip{
   position:absolute;
-  width:1000%;
-  height:200px;
-  background: url('filmstrip.png') repeat-x;
-  background-size: contain;
+  width:200%;              /* wider for sideways motion */
+  height:160px;
+  background:#fff;
   z-index:5;
-  opacity:1;
-}
+  overflow:hidden;
 
+  animation:filmRoll 1s linear infinite;
+}
 .filmstrip.top{
   top:0;
-  animation:stripUp 1.5s forwards;
 }
 
 .filmstrip.bottom{
   bottom:0;
-  animation:stripDown 1.5s forwards;
+}
+/* film holes */
+.filmstrip::before,
+.filmstrip::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:22px;
+
+  background:
+  repeating-linear-gradient(
+    90deg,
+    #050505 0px,
+    #050505 25px,
+    transparent 25px,
+    transparent 70px
+  );
 }
 
+.filmstrip::before{ top:0; }
+.filmstrip::after{ bottom:0; }
+
+/* sideways film motion */
+@keyframes filmRoll{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-120px); }
+}
 @keyframes stripUp{
   0%{transform:translateY(0);}
-  100%{transform:translateY(-220px);}
+  100%{transform:translateY(-180px);}
 }
 
 @keyframes stripDown{
   0%{transform:translateY(0);}
-  100%{transform:translateY(220px);}
+  100%{transform:translateY(180px);}
 }
   .filmstrip 
 {
@@ -561,7 +580,7 @@ window.addEventListener("load", function() {
     const loader = document.getElementById("loader");
     loader.style.opacity = "0";
     setTimeout(function() { loader.style.display = "none"; }, 800);
-  }, 1500);
+  }, 2500);
 });
 
 /* SCROLL ANIMATION */
