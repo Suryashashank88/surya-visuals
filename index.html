@@ -443,6 +443,37 @@ MOBILE
   .hero h2 { font-size: 36px; }
   .showreel iframe { height: 260px; }
 }
+
+/* =========================
+3D DEPTH BASE
+========================= */
+body {
+  perspective: 1200px;
+}
+
+section {
+  transform-style: preserve-3d;
+}
+
+.card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+  /* BRAND NAME (small, above main line) */
+.brand {
+  font-size: 18px;
+  letter-spacing: 6px;
+  color: #e50914;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+/* MAIN HEADLINE */
+.hero-content h2 {
+  font-size: 48px;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
 </style>
 </head>
 
@@ -479,8 +510,9 @@ MOBILE
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h2>SURYA VISUALS</h2>
-    <p>Cinematic Video Editor & VFX Artist</p>
+    <h1 class="brand">SURYA VISUALS</h1>
+    <h2>I Edit Videos That Hold Attention</h2>
+    <p>Cinematic Edits • Strong Hooks • Better Engagement</p>
     <button onclick="location.href='#showreel'">Watch Showreel</button>
   </div>
 </section>
@@ -608,6 +640,30 @@ document.querySelector(".hero").addEventListener("mousemove", (e)=>{
 
 document.querySelector(".hero").addEventListener("mouseleave", ()=>{
   heroVideo.style.transform = `rotateY(0deg) rotateX(0deg)`;
+});
+
+/* =========================
+3D CARD EFFECT
+========================= */
+document.querySelectorAll(".card").forEach(card => {
+
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    card.style.transform = `
+      rotateY(${x * 18}deg)
+      rotateX(${y * -18}deg)
+      scale(1.05)
+    `;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateY(0deg) rotateX(0deg)";
+  });
+
 });
 </script>
 
