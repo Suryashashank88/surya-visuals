@@ -474,6 +474,23 @@ section {
   letter-spacing: 2px;
   line-height: 1.2;
 }
+/* =========================
+SCROLL INDICATOR
+========================= */
+.scroll-indicator {
+  margin-top: 40px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  animation: scrollFade 2s infinite;
+}
+
+@keyframes scrollFade {
+  0% { opacity: 0.2; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(8px); }
+  100% { opacity: 0.2; transform: translateY(0); }
+}
+  
 </style>
 </head>
 
@@ -514,6 +531,7 @@ section {
     <h2>I Edit Videos That Hold Attention</h2>
     <p>Cinematic Edits • Strong Hooks • Better Engagement</p>
     <button onclick="location.href='#showreel'">Watch Showreel</button>
+    <div class="scroll-indicator">Scroll Down ↓</div>
   </div>
 </section>
 
