@@ -437,7 +437,30 @@ STATS
 /* =========================
 MOBILE
 ========================= */
-.contact a[href*="wa.me"]:hover 
+/* WhatsApp */
+.contact a[href*="wa.me"]:hover {
+  background: #25D366;
+  box-shadow: 0 0 25px #25D366;
+}
+
+/* Instagram */
+.contact a[href*="instagram"]:hover {
+  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  box-shadow: 0 0 25px #dc2743;
+}
+
+/* LinkedIn */
+.contact a[href*="linkedin"]:hover {
+  background: #0077b5;
+  box-shadow: 0 0 25px #0077b5;
+}
+
+/* Email */
+.contact a[href^="mailto"]:hover {
+  background: #e50914;
+  box-shadow: 0 0 25px #e50914;
+}
+  .contact a[href*="wa.me"]:hover 
 {
   background: #25D366;
   box-shadow: 0 0 25px #25D366;
@@ -568,10 +591,10 @@ MOBILE
   <h2 class="section-title">CONTACT</h2>
   <p>Open for freelance and film collaborations</p>
   <div class="contact">
+    <a href="https://wa.me/919392545358?text=Hi%20I%20saw%20your%20portfolio" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
     <a href="mailto:suryashashank88@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a>
     <a href="https://instagram.com/surya_shashank_333" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a>
     <a href="https://www.linkedin.com/in/your-profile-id" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-    <a href="https://wa.me/919392545358?text=Hi%20I%20saw%20your%20portfolio" target="_blank"> <i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
     <a href="files/Surya_Shahank_CV.pdf" target="_blank" class="cv-btn"><i class="fa-solid fa-file"></i>Download CV</a>
   </div>
 </section>
