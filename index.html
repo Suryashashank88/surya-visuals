@@ -2,633 +2,571 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surya Visuals | Portfolio</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surya Visuals | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-/* =========================
-GLOBAL RESET & BASE
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <style>
+    /* =========================
+       GLOBAL STYLES
+    ========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  background: #050505;
-  color: white;
-  overflow-x: hidden;
-}
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+      perspective: 1000px;
+    }
 
-/* =========================
-CINEMATIC INTRO LOADER
-========================= */
-#loader {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
-  overflow: hidden;
-}
+    /* =========================
+       LOADER
+    ========================== */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 1s ease;
+      overflow: hidden;
+    }
 
-.cinema-bg {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle,#111 0%,#000 60%);
-  animation: cinemaMove 8s linear infinite;
-}
+    .cinema-bg {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #111 0%, #000 60%);
+      animation: cinemaMove 8s linear infinite;
+    }
 
-@keyframes cinemaMove {
-  0% { transform: translate(-10%,-10%); }
-  50% { transform: translate(10%,10%); }
-  100% { transform: translate(-10%,-10%); }
-}
+    @keyframes cinemaMove {
+      0% {
+        transform: translate(-10%, -10%);
+      }
 
-.intro-container {
-  position: relative;
-  text-align: center;
-  z-index: 2;
-}
+      50% {
+        transform: translate(10%, 10%);
+      }
 
-.sv-logo span {
-  font-size: 120px;
-  font-weight: bold;
-  color: #e50914;
-  letter-spacing: 20px;
-  text-shadow: 0 0 20px #e50914;
-  animation: logoGlow 2s ease-in-out infinite alternate;
-}
+      100% {
+        transform: translate(-10%, -10%);
+      }
+    }
 
-@keyframes logoGlow {
-  from { text-shadow: 0 0 10px #e50914; }
-  to { text-shadow: 0 0 40px #ff1a1a; }
-}
+    .intro-container {
+      position: relative;
+      text-align: center;
+      z-index: 2;
+    }
 
-/* =========================
-FILM STRIP (hidden but ready)
-========================= */
-.filmstrip{
-  position:absolute;
-  width:200%;
-  height:60px;
-  background:#fff;
-  z-index:5;
-  overflow:hidden;
-  animation:filmRoll 2s linear infinite;
-  will-change: transform;
-  display:none;
-}
+    .sv-logo span {
+      font-size: 120px;
+      font-weight: bold;
+      color: #e50914;
+      letter-spacing: 20px;
+      text-shadow: 0 0 20px #e50914;
+      animation: logoGlow 2s ease-in-out infinite alternate;
+    }
 
-.filmstrip.top{ top:0; }
-.filmstrip.bottom{ bottom:0; }
+    @keyframes logoGlow {
+      from {
+        text-shadow: 0 0 10px #e50914;
+      }
 
-.filmstrip::before,
-.filmstrip::after{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:16px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #050505 0px,
-      #050505 25px,
-      transparent 25px,
-      transparent 70px
-    );
-}
+      to {
+        text-shadow: 0 0 40px #ff1a1a;
+      }
+    }
 
-.filmstrip::before{ top:0; }
-.filmstrip::after{ bottom:0; }
+    .intro-text {
+      margin-top: 10px;
+      letter-spacing: 8px;
+      font-size: 32px;
+      opacity: 0.9;
+    }
 
-@keyframes filmRoll{
-  0%{ transform:translateX(0); }
-  100%{ transform:translateX(-70px); }
-}
+    .intro-sub {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.6;
+      letter-spacing: 3px;
+    }
 
-/* =========================
-NAVBAR
-========================= */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 8%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-}
+    /* =========================
+       NAVBAR
+    ========================== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
 
-nav h1 { color: #e50914; letter-spacing: 3px; }
-nav ul { display: flex; gap: 30px; list-style: none; }
-nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 15px;
-  transition: 0.3s;
-}
-nav a:hover { color: #e50914; }
+    nav h1 {
+      color: #e50914;
+      letter-spacing: 3px;
+    }
 
-/* =========================
-HERO
-========================= */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  perspective: 800px;
-}
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+    }
 
-.hero-overlay {
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.65);
-  z-index: -1;
-}
+    nav a:hover {
+      color: #e50914;
+    }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: auto;
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-}
+    /* =========================
+       HERO
+    ========================== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
 
-.hero-content h2 {
-  font-size: 80px;
-  letter-spacing: 10px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-shadow: 0 0 25px rgba(0,0,0,0.8);
-}
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
 
-.hero-content p {
-  font-size: 22px;
-  letter-spacing: 2px;
-  opacity: 0.9;
-  margin-bottom: 35px;
-}
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
 
-.hero-content button {
-  padding: 16px 38px;
-  font-size: 18px;
-  background: #e50914;
-  border: none;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-  transition: 0.35s;
-  box-shadow: none;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: auto;
+    }
 
-.hero-content button:hover {
-  transform: scale(1.1);
-}
+    .hero-content h2 {
+      font-size: 80px;
+      letter-spacing: 10px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    }
 
-/* =========================
-SECTIONS
-========================= */
-section {
-  padding: 100px 10%;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: 1s;
-}
+    .hero-content p {
+      font-size: 22px;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      margin-bottom: 35px;
+    }
 
-section.show { opacity:1; transform:translateY(0); }
+    .hero-content button {
+      padding: 16px 38px;
+      font-size: 18px;
+      background: #e50914;
+      border: none;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+      transition: 0.35s;
+      box-shadow: none;
+    }
 
-.section-title { font-size: 34px; margin-bottom: 40px; color: #e50914; }
+    .hero-content button:hover {
+      transform: scale(1.1);
+    }
 
-/* =========================
-SHOWREEL
-========================= */
-.showreel iframe {
-  width: 90%;
-  max-width: 900px;
-  height: 480px;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(229,9,20,0.3);
-}
+    /* =========================
+       SECTIONS
+    ========================== */
+    section {
+      padding: 100px 10%;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: 1s;
+      transform-style: preserve-3d;
+    }
 
-.showreel{
-    text-align:center;
-    padding:80px 20px;
-}
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.showreel-video{
-    max-width:1000px;
-    margin:auto;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 20px 60px rgba(0,0,0,0.6);
-}
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 40px;
+      color: #e50914;
+    }
 
-.showreel-video iframe{
-    width:100%;
-    height:560px;
-    border:none;
-}
+    /* =========================
+       SHOWREEL
+    ========================== */
+    .showreel iframe {
+      width: 90%;
+      max-width: 900px;
+      height: 480px;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(229, 9, 20, 0.3);
+    }
 
-/* =========================
-PROJECTS
-========================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 30px;
-}
+    .showreel-video {
+      max-width: 1000px;
+      margin: auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
 
-/* 3D Cards */
-.card {
-  background: #111;
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(40px);
-  perspective: 1000px;
-}
+    .showreel-video iframe {
+      width: 100%;
+      height: 560px;
+      border: none;
+    }
 
-.card.show { opacity:1; transform: translateY(0); }
-.card:hover {
-  transform: rotateY(5deg) rotateX(5deg) translateY(-8px);
-  box-shadow: 0 20px 40px rgba(229,9,20,0.5);
-}
+    /* =========================
+       PROJECTS 3D HOVER
+    ========================== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
 
-.card iframe { width: 100%; height: 200px; border: none; }
-.card h3 { padding: 15px; }
+    .card {
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(40px);
+      transform-style: preserve-3d;
+    }
 
-/* =========================
-SKILLS
-========================= */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.skills span {
-  background: #111;
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-}
+    .card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
 
-.skills span.show { opacity: 1; transform: translateY(0); }
-.skills span:hover { background: #e50914; }
+    .card h3 {
+      padding: 15px;
+    }
 
-/* =========================
-WORK WITH ME
-========================= */
-#work { text-align: center; }
+    .card:hover {
+      transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+      box-shadow: 0 20px 50px rgba(229, 9, 20, 0.6);
+    }
 
-.work-text {
-  max-width: 700px;
-  margin: auto;
-  opacity: 0.8;
-  line-height: 1.6;
-  font-size: 18px;
-  margin-bottom: 30px;
-}
+    /* =========================
+       SKILLS
+    ========================== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
 
-.work-btn {
-  padding: 14px 30px;
-  background: #e50914;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
+    .skills span {
+      background: #111;
+      padding: 12px 20px;
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.3s transform, 0.3s background;
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-.work-btn:hover { transform: scale(1.1); }
+    .skills span.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* =========================
-CONTACT BUTTONS WITH 3D HOVER
-========================= */
-.contact {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
+    .skills span:hover {
+      background: #e50914;
+      transform: scale(1.05);
+    }
 
-.contact a {
-  padding: 12px 22px;
-  background: #111;
-  border-radius: 25px;
-  text-decoration: none;
-  color: white;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  perspective: 600px;
-}
+    /* =========================
+       WORK & CONTACT
+    ========================== */
+    .work-btn {
+      padding: 14px 30px;
+      background: #e50914;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
 
-.contact a.show { opacity: 1; transform: translateY(0); }
-.contact a:hover { transform: rotateY(3deg) rotateX(3deg) scale(1.05); }
+    .work-btn:hover {
+      transform: scale(1.1);
+    }
 
-/* Individual Hover Colors */
-.whatsapp-btn {
-  background: #25D366;
-  color: black;
-  font-weight: bold;
-}
-.whatsapp-btn:hover { box-shadow: 0 0 35px #25D366; }
+    .contact {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
 
-.email-btn:hover { background: #444; box-shadow: 0 0 20px #888; }
-.instagram-btn:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); box-shadow: 0 0 25px #dc2743; }
-.linkedin-btn:hover { background: #0077b5; box-shadow: 0 0 25px #0077b5; }
-.cv-btn:hover { background: #f1c40f; color: black; box-shadow: 0 0 25px #f1c40f; }
+    .contact a {
+      padding: 12px 22px;
+      background: #111;
+      border-radius: 25px;
+      text-decoration: none;
+      color: white;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      transition: 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-.contact-line {
-  margin-bottom: 25px;
-  font-size: 18px;
-  opacity: 0.8;
-  letter-spacing: 1px;
-}
+    .contact a.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* =========================
-FOOTER
-========================= */
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #000;
-  margin-top: 60px;
-}
-footer p { font-size: 14px; opacity: 0.7; }
+    .contact a:hover {
+      transform: scale(1.05);
+    }
 
-/* =========================
-STATS
-========================= */
-.stats-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 40px;
-}
+    .whatsapp-btn {
+      background: #25D366;
+      color: black;
+      font-weight: bold;
+    }
 
-.stat {
-  background: #111;
-  padding: 30px 40px;
-  border-radius: 12px;
-  text-align: center;
-  transition: 0.3s;
-}
+    .whatsapp-btn:hover {
+      box-shadow: 0 0 35px #25D366;
+      transform: scale(1.15);
+    }
 
-.stat:hover { transform: translateY(-8px); background: #e50914; }
-.stat h3 { font-size: 40px; color: #e50914; }
-.stat:hover h3 { color: white; }
-.stat p { margin-top: 8px; opacity: 0.8; }
+    .email-btn:hover {
+      background: #444;
+      box-shadow: 0 0 20px #888;
+    }
 
-/* =========================
-MOBILE
-========================= */
-@media(max-width:768px){
-  .hero h2 { font-size: 36px; }
-  .showreel iframe { height: 260px; }
-}
-</style>
+    .instagram-btn:hover {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      box-shadow: 0 0 25px #dc2743;
+    }
+
+    .linkedin-btn:hover {
+      background: #0077b5;
+      box-shadow: 0 0 25px #0077b5;
+    }
+
+    .cv-btn:hover {
+      background: #f1c40f;
+      color: black;
+      box-shadow: 0 0 25px #f1c40f;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      margin-top: 60px;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* =========================
+       SCROLL REVEAL / PARALLAX EFFECT
+    ========================== */
+    @media(max-width:768px){
+      .hero h2 { font-size: 36px; }
+      .showreel iframe { height: 260px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="cinema-bg"></div>
-  <div class="filmstrip top"></div>
-  <div class="filmstrip bottom"></div>
-  <div class="intro-container">
-    <div class="sv-logo"><span>S</span><span>V</span></div>
-    <h2 class="intro-text">SURYA VISUALS</h2>
-    <p class="intro-sub">Entering The Editing Space</p>
-  </div>
-</div>
-
-<!-- NAVBAR -->
-<nav>
-  <h1>SV</h1>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#showreel">Showreel</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="Shiva Own Project Teaser Intro .mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h2>SURYA VISUALS</h2>
-    <p>Cinematic Video Editor & VFX Artist</p>
-    <button onclick="location.href='#showreel'">Watch Showreel</button>
-  </div>
-</section>
-
-<!-- SHOWREEL -->
-<section class="showreel" id="showreel">
-  <h2 class="section-title">FEATURED SHOWREEL</h2>
-  <div class="showreel-video">
-    <iframe 
-      src="https://drive.google.com/file/d/1U4q2MCPdNQ18Qqc-RCxNlNyJ93bVUWHm/preview"
-      width="100%"
-      height="560"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <h2 class="section-title">PROJECTS</h2>
-  <div class="grid">
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/UuWtKsGmOOw"></iframe>
-      <h3>Trailer Edit</h3>
-    </div>
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/wGyMjv01gaI"></iframe>
-      <h3>Music Edit</h3>
-    </div>
-    <div class="card">
-      <iframe src="https://drive.google.com/file/d/1JzApEDjtXsfbSMJRo4NmdQNAHWgCmGqp/preview"></iframe>
-      <h3>AD Promo</h3>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="cinema-bg"></div>
+    <div class="intro-container">
+      <div class="sv-logo"><span>S</span><span>V</span></div>
+      <h2 class="intro-text">SURYA VISUALS</h2>
+      <p class="intro-sub">Entering The Editing Space</p>
     </div>
   </div>
-</section>
 
-<!-- STATS -->
-<section id="stats">
-  <h2 class="section-title">MY WORK</h2>
-  <div class="stats-container">
-    <div class="stat"><h3>20+</h3><p>Projects Edited</p></div>
-    <div class="stat"><h3>5+</h3><p>Creative Collaborations</p></div>
-    <div class="stat"><h3>1</h3><p>Short Films</p></div>
-    <div class="stat"><h3>100%</h3><p>Passion For Cinema</p></div>
-  </div>
-</section>
+  <!-- NAVBAR -->
+  <nav>
+    <h1>SV</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#showreel">Showreel</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2 class="section-title">SKILLS</h2>
-  <div class="skills">
-    <span>Video Editing</span>
-    <span>Motion Graphics</span>
-    <span>Color Grading</span>
-    <span>Rotoscoping</span>
-    <span>Green Screen</span>
-    <span>Match Move</span>
-    <span>Photo Editing</span>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="Shiva Own Project Teaser Intro .mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h2>SURYA VISUALS</h2>
+      <p>Cinematic Video Editor & VFX Artist</p>
+      <button onclick="location.href='#showreel'">Watch Showreel</button>
+    </div>
+  </section>
 
-<!-- WORK WITH ME -->
-<section id="work">
-  <h2 class="section-title">LET'S WORK TOGETHER</h2>
-  <p class="work-text">
-    I'm currently open for freelance work, film collaborations, music videos, trailers, and cinematic editing projects.
-    If you're a filmmaker, brand, or content creator looking for powerful storytelling through editing, I'd love to collaborate.
-  </p>
-  <a href="#contact" class="work-btn">Start a Project</a>
-</section>
+  <!-- SHOWREEL -->
+  <section class="showreel" id="showreel">
+    <h2 class="section-title">FEATURED SHOWREEL</h2>
+    <div class="showreel-video">
+      <iframe src="https://drive.google.com/file/d/1U4q2MCPdNQ18Qqc-RCxNlNyJ93bVUWHm/preview" allowfullscreen></iframe>
+    </div>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title">CONTACT</h2>
-  <p class="contact-line">
-    Got footage? I’ll turn it cinematic.
-  </p>
-  <div class="contact">
-    <a href="https://wa.me/919392545358?text=Hi%20I%20saw%20your%20portfolio" target="_blank" class="whatsapp-btn">
-      <i class="fa-brands fa-whatsapp"></i>WhatsApp
-    </a>
-    <a href="mailto:suryashashank88@gmail.com" class="email-btn">
-      <i class="fa-solid fa-envelope"></i>Email
-    </a>
-    <a href="https://instagram.com/surya_shashank_333" target="_blank" class="instagram-btn">
-      <i class="fa-brands fa-instagram"></i>Instagram
-    </a>
-    <a href="https://www.linkedin.com/in/your-profile-id" target="_blank" class="linkedin-btn">
-      <i class="fa-brands fa-linkedin"></i>LinkedIn
-    </a>
-    <a href="files/Surya_Shahank_CV.pdf" target="_blank" class="cv-btn">
-      <i class="fa-solid fa-file"></i>Download CV
-    </a>
-  </div>
-</section>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">PROJECTS</h2>
+    <div class="grid">
+      <div class="card"><iframe src="https://www.youtube.com/embed/UuWtKsGmOOw"></iframe><h3>Trailer Edit</h3></div>
+      <div class="card"><iframe src="https://www.youtube.com/embed/wGyMjv01gaI"></iframe><h3>Music Edit</h3></div>
+      <div class="card"><iframe src="https://drive.google.com/file/d/1JzApEDjtXsfbSMJRo4NmdQNAHWgCmGqp/preview"></iframe><h3>AD Promo</h3></div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© <span id="year"></span> Surya Visuals. All Rights Reserved.<br>Crafted by Surya Shashank</p>
-</footer>
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">SKILLS</h2>
+    <div class="skills">
+      <span>Video Editing</span>
+      <span>Motion Graphics</span>
+      <span>Color Grading</span>
+      <span>Rotoscoping</span>
+      <span>Green Screen</span>
+      <span>Match Move</span>
+      <span>Photo Editing</span>
+    </div>
+  </section>
 
-<script>
-/* =========================
-YEAR
-========================= */
-document.getElementById("year").textContent = new Date().getFullYear();
+  <!-- WORK WITH ME -->
+  <section id="work">
+    <h2 class="section-title">LET'S WORK TOGETHER</h2>
+    <p class="work-text">
+      I'm currently open for freelance work, film collaborations, music videos, trailers, and cinematic editing projects.
+      If you're a filmmaker, brand, or content creator looking for powerful storytelling through editing, I'd love to collaborate.
+    </p>
+    <a href="#contact" class="work-btn">Start a Project</a>
+  </section>
 
-/* =========================
-LOADER
-========================= */
-window.addEventListener("load", function() {
-  setTimeout(function() {
-    const loader = document.getElementById("loader");
-    loader.style.opacity = "0";
-    setTimeout(function() { loader.style.display = "none"; }, 890);
-  }, 2200);
-});
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">CONTACT</h2>
+    <p class="contact-line">Got footage? I’ll turn it cinematic.</p>
+    <div class="contact">
+      <a href="https://wa.me/919392545358" target="_blank" class="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+      <a href="mailto:suryashashank88@gmail.com" class="email-btn"><i class="fa-solid fa-envelope"></i>Email</a>
+      <a href="https://instagram.com/surya_shashank_333" target="_blank" class="instagram-btn"><i class="fa-brands fa-instagram"></i>Instagram</a>
+      <a href="https://www.linkedin.com/in/your-profile-id" target="_blank" class="linkedin-btn"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+      <a href="files/Surya_Shahank_CV.pdf" target="_blank" class="cv-btn"><i class="fa-solid fa-file"></i>Download CV</a>
+    </div>
+  </section>
 
-/* =========================
-SCROLL ANIMATION
-========================= */
-const sections = document.querySelectorAll("section");
-const cards = document.querySelectorAll(".card");
-const skills = document.querySelectorAll(".skills span");
-const contacts = document.querySelectorAll(".contact a");
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Surya Visuals. All Rights Reserved.<br>Crafted by Surya Shashank</p>
+  </footer>
 
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    if(sec.getBoundingClientRect().top < window.innerHeight-120) sec.classList.add("show");
-  });
-  cards.forEach((c,i) => {
-    if(c.getBoundingClientRect().top < window.innerHeight-100) setTimeout(()=>c.classList.add("show"),i*150);
-  });
-  skills.forEach((s,i) => {
-    if(s.getBoundingClientRect().top < window.innerHeight-100) setTimeout(()=>s.classList.add("show"),i*100);
-  });
-  contacts.forEach((a,i) => {
-    if(a.getBoundingClientRect().top < window.innerHeight-100) setTimeout(()=>a.classList.add("show"),i*100);
-  });
-});
+  <script>
+    /* YEAR */
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-/* =========================
-HERO PARALLAX 3D
-========================= */
-const hero = document.querySelector(".hero");
-const heroContent = document.querySelector(".hero-content");
+    /* LOADER */
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const loader = document.getElementById("loader");
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 890);
+      }, 2200);
+    });
 
-hero.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.pageX) / 40;
-  const y = (window.innerHeight / 2 - e.pageY) / 40;
-  heroContent.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
+    /* SCROLL ANIMATION & PARALLAX */
+    const sections = document.querySelectorAll("section");
+    const cards = document.querySelectorAll(".card");
+    const skills = document.querySelectorAll(".skills span");
+    const contacts = document.querySelectorAll(".contact a");
 
-hero.addEventListener("mouseleave", () => {
-  heroContent.style.transform = "rotateY(0deg) rotateX(0deg)";
-});
-</script>
-
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top < window.innerHeight - 120) sec.classList.add("show");
+      });
+      cards.forEach((c, i) => {
+        if (c.getBoundingClientRect().top < window.innerHeight - 100) setTimeout(() => c.classList.add("show"), i * 150);
+      });
+      skills.forEach((s, i) => {
+        if (s.getBoundingClientRect().top < window.innerHeight - 100) setTimeout(() => s.classList.add("show"), i * 100);
+      });
+      contacts.forEach((a, i) => {
+        if (a.getBoundingClientRect().top < window.innerHeight - 100) setTimeout(() => a.classList.add("show"), i * 100);
+      });
+    });
+  </script>
 </body>
 </html>
