@@ -499,6 +499,14 @@ SCROLL INDICATOR
   50% { opacity: 1; transform: translateY(8px); }
   100% { opacity: 0.2; transform: translateY(0); }
 }
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* single column */
+    justify-items: center;      /* center cards horizontally */
+    gap: 20px;                  /* optional, smaller gap on mobile */
+  }
+}
   
 </style>
 </head>
